@@ -20,28 +20,36 @@ function App() {
 }
 
 function UpVoteArrow() {
+    function handleClick(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+        e.preventDefault();
+        console.log("Upvote pressed");
+    }
+
     return (
-        <Arrow fill="#5F5" className={"arrow-upVote"}/>
+        <button onClick={handleClick} className={"arrow-button"}>
+            <Arrow fill="#5F5" className={"arrow-upVote"}/>
+        </button>
     );
 }
 
 function DownVoteArrow() {
+    function handleClick(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+        e.preventDefault();
+        console.log("Downvote pressed");
+    }
+
     return (
-        <Arrow fill="#F55" className={"arrow-downVote"}/>
+        <button onClick={handleClick} className={"arrow-button"}>
+            <Arrow fill="#F55" className={"arrow-downVote"}/>
+        </button>
     );
 }
 
 function Arrow({className, fill} : {className: string, fill: string}) {
     return (
         // All the extra SVG stuff was stripped using SVGOMG: https://jakearchibald.github.io/svgomg/
-        <svg className={className} fill={fill} viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" fillRule="evenodd" clipRule="evenodd" strokeLinejoin="round" strokeMiterlimit="2">
-            <path d="M41 47c1.6-3.1 4.3-5.8 6.5-8.5 2.8-3.3 5.3-7 8.4-9.9 1.2-1 2.4-2.3 3.3-3.6a12.7 12.7 0 014.4-4.2A8 8 0 0176 25.3l3.3 3.2a48 48 0 018.8 10.2 28 28 0 011.7 4l1 .7c2.4 2 4.9 4.3 6.8 6.7.8.8 2.6 2.5 3.2 3.6a8.9 8.9 0 01-1.5 10.6c-2.8 2.7-6 3.7-9.3 3.5-2.1 0-4.4-.9-6.3-1.2-6.1-1-12.3-1-18.5-.7-4 .2-8 .6-12.1.6-.8 0-1.6 0-2.4.2l-3.2.4c-2.2 0-3.8-.5-5-1.4l-.6.5-.5.3c-1.2 3.1-3.6 4.6-6.7 4.9-.8 0-3.7.4-6.5-2.4a32 32 0 01-2.9-4.3c-.9-2.3-.6-4-.4-4.9.7-3.1 2.7-5 5.3-5.8.7-.2 1.4 0 2-.6 2.9-2.2 5.9-4.2 8.7-6.4z" fill="#fff"/>
-            <g fill={fill}>
-                <path d="M47.5 70.2A8.6 8.6 0 0153 65c2.5-.8 5.7-1.8 8.5-2.1 2-.2 4 .2 6 .2.9 0 3.1-.3 4.4-.2 1.6 0 3 .5 3.8 1 1.2.5 2.6 1.6 3.6 3.6.8 1.3 1.4 4 1.4 4.7.3 2.1.2 4.2.2 6.3 0 2.6-.4 5.2-.6 7.8-.4 5.3-.5 10.7-.8 16-.3 5.7 1 11.5 1.9 17l.7 3.2-.2-.4s1.2 3.3 1.2 4.5c0 2.3-.8 3.8-1.6 4.9-1.4 1.8-10.9 1.9-10.9 1.9s3 1 4 1l-2.7-.2c-.7-.1-1.7 0-2.3.1-4.1.8-9.4.7-13.7 0-.9 0-3.7 0-4.8-.2a8.8 8.8 0 01-4-2.3 7.7 7.7 0 01-2.4-6.4l.5-1v-.4-7.4c-.5-10.3-.4-20.6.5-31 .3-3 1-6.2.8-9.2-.1-1.3.2-4.7.8-6l.2-.2zm-2 53.5l3-4.4s-2.2 2.3-2.5 2.9c-.2.3-.3 1-.4 1.5zM48 78.2zm-.6-2.3a7.8 7.8 0 010 .3v-.3z"/>
-                <path d="M15.7 65.1c2.4-.6 4.8-.8 7.2-1.2 7-1.2 14-1.5 21.2-2.3a526 526 0 0139.2-2.2c5.7-.2 11.6-.6 17.3.1 3 .4 6 1.3 9.2 1.4.8-.1 3.7-.4 4.9-.1a9 9 0 014.8 2.4 8 8 0 01-7.4 13.5l-2.1.2c-3.9 0-7.5-1-11.3-1.5-4.9-.6-10-.2-14.9 0-12.7.4-25.4.8-38 2.1-6.8.8-13.6 1-20.3 2.2-2 .3-4 .3-5.8 1-2.2.6-3.7 1-5.9.5-1-.1-2.8-.8-2.8-.8A8 8 0 0113.9 65h.3l1.5.1z"/>
-                <path d="M7 80.8a7.1 7.1 0 01-2.8-2.4 8 8 0 01-.4-7c.5-1.5 3-4.2 3-4.2l-.6.6a78 78 0 014.3-4.7c2.6-2.7 4.9-5.5 7.2-8.3 3.1-3.8 6.7-7.3 10-10.9C35.4 36 43 28.2 51 20.6c3-2.8 6-5.3 9.4-7.8 1-.6 2.5-2 4-2.8 1.8-.9 3.6-1.3 5.1-1.3a8 8 0 012 15.7l-1.7 1.4c-2.7 2-5.4 4.1-7.8 6.5a538.6 538.6 0 00-22.5 22.6c-3.1 3.3-6.4 6.5-9.3 10a149.8 149.8 0 01-9.7 11A8 8 0 017 80.9zm11.8-9l-.5-1c-1-2-6-3.9-6-3.9s4.1 2.8 6.5 5z"/>
-                <path d="M63 7.7c2.6-2.8 7-3 10-1.4a8.2 8.2 0 013.8 4.8l1.7 2.2c.6.8 16.7 18.7 17.2 19.5 4.7 6.8 6.6 8.9 12.4 17 1.7 2.3 3.2 5 5.8 7 .6.3 1.1 1 1.6 1.8a8 8 0 014.8 7.3c0 4.6-4.2 8.4-7.6 9-3.6.7-6.6-.8-8.4-3.3-.5-.8-1-2.2-1.5-3.3-3.1-2.8-5.4-6-7.6-9.2-6-8.2-7.9-10.3-12.7-17.3L65.8 23l-1-1.2-1.8-1.5c-2-2-2.8-4.7-2.8-5.2-.5-3 .6-5 1.8-6.3l1-1zm-.7 9.8l.1.2 1 1.3c-.4-.5-.8-1-1-1.5z"/>
-            </g>
+        <svg className={className} pointerEvents="bounding-box" xmlns="http://www.w3.org/2000/svg" fillRule="evenodd" strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="1.5" clipRule="evenodd" viewBox="0 0 5692 4267">
+            <path fill={fill} stroke="#000" strokeWidth="123.3" d="M2571 614c-244 79-695 713-856 925-56 75-166 237-369 585-72 123-131 263-65 302 113 68 563-70 647 38 70 89 26 1415 29 1458h1229s-43-1342 29-1458c72-117 534 30 647-38 65-39 7-179-65-302a6408 6408 0 00-369-585c-161-212-612-846-857-925"/>
         </svg>
     );
 }
